@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import View
 from .models import Product, Category
+from .cart import Cart
 
 
 class HomeView(View):
@@ -14,3 +15,10 @@ class ProductDetailView(View):
     def get(self, request, p_slug):
         product = get_object_or_404(Product, slug=p_slug)
         return render(request, 'order/detail.html', {'product': product})
+
+
+class CartView(View):
+
+    def get(self, request):
+        cart = Cart(request)
+        return render(request, 'order/cart.html', {'cart': cart})
