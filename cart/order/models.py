@@ -13,7 +13,7 @@ class Category(models.Model):
 
     def __str__(self):
         if self.sub_category:
-            return f'{self.sub_category}------->{self.name}'
+            return f'{self.sub_category}------->***{self.name}***'
         return f'{self.name}'
 
 
