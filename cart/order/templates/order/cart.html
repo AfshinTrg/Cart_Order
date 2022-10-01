@@ -21,13 +21,13 @@
                 <td>{{ item.total_price }}</td>
                 <td><a href="{% url 'order:cart_remove' item.product.id %}" class="btn btn-danger">Remove</a></td>
               </tr>
-              <tr>
+          {% endfor %}
+           <tr>
                 <td>Total price</td>
                 <td colspan="3"></td>
                 <td>{{ cart.get_total_price }}</td>
                 <td colspan="1"></td>
               </tr>
-          {% endfor %}
           </thead>
         </table>
 {% endblock %}
