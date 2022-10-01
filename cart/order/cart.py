@@ -32,4 +32,9 @@ class Cart:
     def save(self):
         self.session.modified = True  # save session after modify
 
+    def remove(self, product):
+        p_id = str(product.id)
+        if p_id in self.cart:
+            del self.cart[p_id]
+            self.save()
 
